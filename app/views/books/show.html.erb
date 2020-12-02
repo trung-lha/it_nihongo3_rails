@@ -26,6 +26,7 @@
   <div class= "field">
     <%= form.text_area :review %>
     <%= form.hidden_field :book_id, :value => @book.id %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
     <%= form.submit %>
@@ -36,7 +37,8 @@
 <ul>
   <% @book.book_review.each do |book_review|%>
    <li><%= book_review.review %>
-     (<i><%= book_review.user_id %></i>)</li>
+     <!--(<i><%= book_review.user_id %></i>)</li>-->
+     (<i><%= book_review.user.name if book_review.user%></i>)</li>
 <% end %>
 </ul>
 
